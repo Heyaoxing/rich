@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rich.repository.dao.IdentityInfoMapper">
+  <resultMap id="BaseResultMap" type="com.rich.repository.entity.IdentityInfo">
+    <id column="Identity_ID" jdbcType="VARCHAR" property="identityId" />
+    <result column="AreaID" jdbcType="VARCHAR" property="areaid" />
+    <result column="User_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Briefly" jdbcType="VARCHAR" property="briefly" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Work_Time" jdbcType="VARCHAR" property="workTime" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="Images01" jdbcType="VARCHAR" property="images01" />
+    <result column="Images02" jdbcType="VARCHAR" property="images02" />
+    <result column="Images03" jdbcType="VARCHAR" property="images03" />
+    <result column="Images04" jdbcType="VARCHAR" property="images04" />
+    <result column="Images05" jdbcType="VARCHAR" property="images05" />
+    <result column="Images06" jdbcType="VARCHAR" property="images06" />
+    <result column="CreatedOn" jdbcType="TIMESTAMP" property="createdon" />
+    <result column="UpdatedOn" jdbcType="TIMESTAMP" property="updatedon" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.rich.repository.entity.IdentityInfo">
+    <result column="Description" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Identity_ID, AreaID, User_ID, Name, Briefly, Address, Work_Time, Mobile, Images01, 
+    Images02, Images03, Images04, Images05, Images06, CreatedOn, UpdatedOn
+  </sql>
+  <sql id="Blob_Column_List">
+    Description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from identityinfo
+    where Identity_ID = #{identityId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from identityinfo
+    where Identity_ID = #{identityId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rich.repository.entity.IdentityInfo">
+    insert into identityinfo (Identity_ID, AreaID, User_ID, 
+      Name, Briefly, Address, 
+      Work_Time, Mobile, Images01, 
+      Images02, Images03, Images04, 
+      Images05, Images06, CreatedOn, 
+      UpdatedOn, Description)
+    values (#{identityId,jdbcType=VARCHAR}, #{areaid,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{briefly,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{workTime,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{images01,jdbcType=VARCHAR}, 
+      #{images02,jdbcType=VARCHAR}, #{images03,jdbcType=VARCHAR}, #{images04,jdbcType=VARCHAR}, 
+      #{images05,jdbcType=VARCHAR}, #{images06,jdbcType=VARCHAR}, #{createdon,jdbcType=TIMESTAMP}, 
+      #{updatedon,jdbcType=TIMESTAMP}, #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rich.repository.entity.IdentityInfo">
+    insert into identityinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="identityId != null">
+        Identity_ID,
+      </if>
+      <if test="areaid != null">
+        AreaID,
+      </if>
+      <if test="userId != null">
+        User_ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="briefly != null">
+        Briefly,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="workTime != null">
+        Work_Time,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="images01 != null">
+        Images01,
+      </if>
+      <if test="images02 != null">
+        Images02,
+      </if>
+      <if test="images03 != null">
+        Images03,
+      </if>
+      <if test="images04 != null">
+        Images04,
+      </if>
+      <if test="images05 != null">
+        Images05,
+      </if>
+      <if test="images06 != null">
+        Images06,
+      </if>
+      <if test="createdon != null">
+        CreatedOn,
+      </if>
+      <if test="updatedon != null">
+        UpdatedOn,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="identityId != null">
+        #{identityId,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null">
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="briefly != null">
+        #{briefly,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="workTime != null">
+        #{workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="images01 != null">
+        #{images01,jdbcType=VARCHAR},
+      </if>
+      <if test="images02 != null">
+        #{images02,jdbcType=VARCHAR},
+      </if>
+      <if test="images03 != null">
+        #{images03,jdbcType=VARCHAR},
+      </if>
+      <if test="images04 != null">
+        #{images04,jdbcType=VARCHAR},
+      </if>
+      <if test="images05 != null">
+        #{images05,jdbcType=VARCHAR},
+      </if>
+      <if test="images06 != null">
+        #{images06,jdbcType=VARCHAR},
+      </if>
+      <if test="createdon != null">
+        #{createdon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedon != null">
+        #{updatedon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rich.repository.entity.IdentityInfo">
+    update identityinfo
+    <set>
+      <if test="areaid != null">
+        AreaID = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        User_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="briefly != null">
+        Briefly = #{briefly,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="workTime != null">
+        Work_Time = #{workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        Mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="images01 != null">
+        Images01 = #{images01,jdbcType=VARCHAR},
+      </if>
+      <if test="images02 != null">
+        Images02 = #{images02,jdbcType=VARCHAR},
+      </if>
+      <if test="images03 != null">
+        Images03 = #{images03,jdbcType=VARCHAR},
+      </if>
+      <if test="images04 != null">
+        Images04 = #{images04,jdbcType=VARCHAR},
+      </if>
+      <if test="images05 != null">
+        Images05 = #{images05,jdbcType=VARCHAR},
+      </if>
+      <if test="images06 != null">
+        Images06 = #{images06,jdbcType=VARCHAR},
+      </if>
+      <if test="createdon != null">
+        CreatedOn = #{createdon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedon != null">
+        UpdatedOn = #{updatedon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Identity_ID = #{identityId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.rich.repository.entity.IdentityInfo">
+    update identityinfo
+    set AreaID = #{areaid,jdbcType=VARCHAR},
+      User_ID = #{userId,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Briefly = #{briefly,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Work_Time = #{workTime,jdbcType=VARCHAR},
+      Mobile = #{mobile,jdbcType=VARCHAR},
+      Images01 = #{images01,jdbcType=VARCHAR},
+      Images02 = #{images02,jdbcType=VARCHAR},
+      Images03 = #{images03,jdbcType=VARCHAR},
+      Images04 = #{images04,jdbcType=VARCHAR},
+      Images05 = #{images05,jdbcType=VARCHAR},
+      Images06 = #{images06,jdbcType=VARCHAR},
+      CreatedOn = #{createdon,jdbcType=TIMESTAMP},
+      UpdatedOn = #{updatedon,jdbcType=TIMESTAMP},
+      Description = #{description,jdbcType=LONGVARCHAR}
+    where Identity_ID = #{identityId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rich.repository.entity.IdentityInfo">
+    update identityinfo
+    set AreaID = #{areaid,jdbcType=VARCHAR},
+      User_ID = #{userId,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Briefly = #{briefly,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Work_Time = #{workTime,jdbcType=VARCHAR},
+      Mobile = #{mobile,jdbcType=VARCHAR},
+      Images01 = #{images01,jdbcType=VARCHAR},
+      Images02 = #{images02,jdbcType=VARCHAR},
+      Images03 = #{images03,jdbcType=VARCHAR},
+      Images04 = #{images04,jdbcType=VARCHAR},
+      Images05 = #{images05,jdbcType=VARCHAR},
+      Images06 = #{images06,jdbcType=VARCHAR},
+      CreatedOn = #{createdon,jdbcType=TIMESTAMP},
+      UpdatedOn = #{updatedon,jdbcType=TIMESTAMP}
+    where Identity_ID = #{identityId,jdbcType=VARCHAR}
+  </update>
+</mapper>
