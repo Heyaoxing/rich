@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rich.repository.dao.RechargeInfoMapper">
+  <resultMap id="BaseResultMap" type="com.rich.repository.entity.RechargeInfo">
+    <id column="Recharge_ID" jdbcType="INTEGER" property="rechargeId" />
+    <result column="User_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="Money" jdbcType="DECIMAL" property="money" />
+    <result column="Source" jdbcType="SMALLINT" property="source" />
+    <result column="Account" jdbcType="VARCHAR" property="account" />
+    <result column="CreatedOn" jdbcType="TIMESTAMP" property="createdon" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Recharge_ID, User_ID, Money, Source, Account, CreatedOn
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from rechargeinfo
+    where Recharge_ID = #{rechargeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from rechargeinfo
+    where Recharge_ID = #{rechargeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rich.repository.entity.RechargeInfo">
+    insert into rechargeinfo (Recharge_ID, User_ID, Money, 
+      Source, Account, CreatedOn
+      )
+    values (#{rechargeId,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, 
+      #{source,jdbcType=SMALLINT}, #{account,jdbcType=VARCHAR}, #{createdon,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rich.repository.entity.RechargeInfo">
+    insert into rechargeinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rechargeId != null">
+        Recharge_ID,
+      </if>
+      <if test="userId != null">
+        User_ID,
+      </if>
+      <if test="money != null">
+        Money,
+      </if>
+      <if test="source != null">
+        Source,
+      </if>
+      <if test="account != null">
+        Account,
+      </if>
+      <if test="createdon != null">
+        CreatedOn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rechargeId != null">
+        #{rechargeId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=SMALLINT},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="createdon != null">
+        #{createdon,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rich.repository.entity.RechargeInfo">
+    update rechargeinfo
+    <set>
+      <if test="userId != null">
+        User_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        Money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="source != null">
+        Source = #{source,jdbcType=SMALLINT},
+      </if>
+      <if test="account != null">
+        Account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="createdon != null">
+        CreatedOn = #{createdon,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Recharge_ID = #{rechargeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rich.repository.entity.RechargeInfo">
+    update rechargeinfo
+    set User_ID = #{userId,jdbcType=VARCHAR},
+      Money = #{money,jdbcType=DECIMAL},
+      Source = #{source,jdbcType=SMALLINT},
+      Account = #{account,jdbcType=VARCHAR},
+      CreatedOn = #{createdon,jdbcType=TIMESTAMP}
+    where Recharge_ID = #{rechargeId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rich.repository.dao.BusinessSortInfoMapper">
+  <resultMap id="BaseResultMap" type="com.rich.repository.entity.BusinessSortInfo">
+    <id column="Sort_ID" jdbcType="INTEGER" property="sortId" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Icon_Url" jdbcType="VARCHAR" property="iconUrl" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Sort_ID, Name, Icon_Url, Status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from businesssortinfo
+    where Sort_ID = #{sortId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from businesssortinfo
+    where Sort_ID = #{sortId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rich.repository.entity.BusinessSortInfo">
+    insert into businesssortinfo (Sort_ID, Name, Icon_Url, 
+      Status)
+    values (#{sortId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{iconUrl,jdbcType=VARCHAR}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rich.repository.entity.BusinessSortInfo">
+    insert into businesssortinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sortId != null">
+        Sort_ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="iconUrl != null">
+        Icon_Url,
+      </if>
+      <if test="status != null">
+        Status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sortId != null">
+        #{sortId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="iconUrl != null">
+        #{iconUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rich.repository.entity.BusinessSortInfo">
+    update businesssortinfo
+    <set>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="iconUrl != null">
+        Icon_Url = #{iconUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        Status = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where Sort_ID = #{sortId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rich.repository.entity.BusinessSortInfo">
+    update businesssortinfo
+    set Name = #{name,jdbcType=VARCHAR},
+      Icon_Url = #{iconUrl,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=SMALLINT}
+    where Sort_ID = #{sortId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rich.repository.dao.PraiseRecordMapper">
+  <resultMap id="BaseResultMap" type="com.rich.repository.entity.PraiseRecord">
+    <id column="Praise_ID" jdbcType="INTEGER" property="praiseId" />
+    <result column="UserI_ID" jdbcType="VARCHAR" property="useriId" />
+    <result column="Praiser_UserID" jdbcType="VARCHAR" property="praiserUserid" />
+    <result column="Score" jdbcType="DECIMAL" property="score" />
+    <result column="Evaluation" jdbcType="VARCHAR" property="evaluation" />
+    <result column="Agree_Number" jdbcType="INTEGER" property="agreeNumber" />
+    <result column="Disagree_Number" jdbcType="INTEGER" property="disagreeNumber" />
+    <result column="CreatedOn" jdbcType="TIMESTAMP" property="createdon" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Praise_ID, UserI_ID, Praiser_UserID, Score, Evaluation, Agree_Number, Disagree_Number, 
+    CreatedOn
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from praiserecord
+    where Praise_ID = #{praiseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from praiserecord
+    where Praise_ID = #{praiseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rich.repository.entity.PraiseRecord">
+    insert into praiserecord (Praise_ID, UserI_ID, Praiser_UserID, 
+      Score, Evaluation, Agree_Number, 
+      Disagree_Number, CreatedOn)
+    values (#{praiseId,jdbcType=INTEGER}, #{useriId,jdbcType=VARCHAR}, #{praiserUserid,jdbcType=VARCHAR}, 
+      #{score,jdbcType=DECIMAL}, #{evaluation,jdbcType=VARCHAR}, #{agreeNumber,jdbcType=INTEGER}, 
+      #{disagreeNumber,jdbcType=INTEGER}, #{createdon,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rich.repository.entity.PraiseRecord">
+    insert into praiserecord
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="praiseId != null">
+        Praise_ID,
+      </if>
+      <if test="useriId != null">
+        UserI_ID,
+      </if>
+      <if test="praiserUserid != null">
+        Praiser_UserID,
+      </if>
+      <if test="score != null">
+        Score,
+      </if>
+      <if test="evaluation != null">
+        Evaluation,
+      </if>
+      <if test="agreeNumber != null">
+        Agree_Number,
+      </if>
+      <if test="disagreeNumber != null">
+        Disagree_Number,
+      </if>
+      <if test="createdon != null">
+        CreatedOn,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="praiseId != null">
+        #{praiseId,jdbcType=INTEGER},
+      </if>
+      <if test="useriId != null">
+        #{useriId,jdbcType=VARCHAR},
+      </if>
+      <if test="praiserUserid != null">
+        #{praiserUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="evaluation != null">
+        #{evaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="agreeNumber != null">
+        #{agreeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="disagreeNumber != null">
+        #{disagreeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="createdon != null">
+        #{createdon,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rich.repository.entity.PraiseRecord">
+    update praiserecord
+    <set>
+      <if test="useriId != null">
+        UserI_ID = #{useriId,jdbcType=VARCHAR},
+      </if>
+      <if test="praiserUserid != null">
+        Praiser_UserID = #{praiserUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        Score = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="evaluation != null">
+        Evaluation = #{evaluation,jdbcType=VARCHAR},
+      </if>
+      <if test="agreeNumber != null">
+        Agree_Number = #{agreeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="disagreeNumber != null">
+        Disagree_Number = #{disagreeNumber,jdbcType=INTEGER},
+      </if>
+      <if test="createdon != null">
+        CreatedOn = #{createdon,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Praise_ID = #{praiseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rich.repository.entity.PraiseRecord">
+    update praiserecord
+    set UserI_ID = #{useriId,jdbcType=VARCHAR},
+      Praiser_UserID = #{praiserUserid,jdbcType=VARCHAR},
+      Score = #{score,jdbcType=DECIMAL},
+      Evaluation = #{evaluation,jdbcType=VARCHAR},
+      Agree_Number = #{agreeNumber,jdbcType=INTEGER},
+      Disagree_Number = #{disagreeNumber,jdbcType=INTEGER},
+      CreatedOn = #{createdon,jdbcType=TIMESTAMP}
+    where Praise_ID = #{praiseId,jdbcType=INTEGER}
+  </update>
+</mapper>
