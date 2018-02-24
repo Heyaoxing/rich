@@ -1,0 +1,51 @@
+<template>
+  <wxc-toast
+    is-show="{{$toast.show}}"
+    text="发表成功"
+    icon="yes"
+    icon-color="#ff5777"
+    ></wxc-toast>
+  <button bindtap="showToast"  class="speak_btn" bindtap="showToast" size="mini" type="primary">发表</button>
+</template>
+
+<script>
+  export default {
+    config: {
+      usingComponents: {
+        'wxc-toast': '@minui/wxc-toast'
+        
+      }
+    },
+    data: {
+      $toast: {
+        show: false
+      }
+    },
+
+    methods: {
+      showToast() {
+        this.setData({
+          $toast: {
+            show: true
+          }
+        })
+        setTimeout(() => {
+          this.setData({
+          $toast: {
+            show: false
+          }
+        })
+         wx.navigateBack({
+          delta: 2
+        })
+      }, 1500)
+      }
+    }
+  }
+</script>
+
+<style>
+.speak_btn {
+  margin-right: 20rpx;
+}
+</style>

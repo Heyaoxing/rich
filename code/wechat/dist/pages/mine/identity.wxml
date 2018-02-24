@@ -1,0 +1,60 @@
+<view>
+    <!-- <layout-head></layout-head> -->
+
+    <!-- wxp template -->
+    <wxc-flex class="margin_page" dir="top" _pid="{{_pid}}">
+        <view class="iden_head margin_page">
+            <wxc-flex main="between" _pid="{{_pid}}">
+                <view>
+                    <wxc-flex dir="top" _pid="{{_pid}}">
+                        <text class="shop_text">喜茶天虹店</text>
+                        <text class="type_text">奶茶 . 休闲</text>
+                    </wxc-flex>
+                </view>
+                <view>
+                    <wxc-avatar class=".avatar" width="" src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png" _pid="{{_pid}}"></wxc-avatar>
+                </view>
+            </wxc-flex>
+        </view>
+        <view class="mid margin_page">
+            <wxc-flex dir="top" _pid="{{_pid}}">
+                <view class="mid_item">
+                    <wxc-icon size="20" type="corcer-r" _pid="{{_pid}}"></wxc-icon> 广东省梅州市五华县</view>
+                <view class="mid_item">
+                    <wxc-icon size="20" type="corcer-r" _pid="{{_pid}}"></wxc-icon> 00:00-24:00</view>
+                <view class="mid_item">
+                    <wxc-icon size="20" type="corcer-r" _pid="{{_pid}}"></wxc-icon> 15214125362</view>
+                <view class="mid_item">
+                    <wxc-icon size="20" type="corcer-r" _pid="{{_pid}}"></wxc-icon> 展示</view>
+            </wxc-flex>
+        </view>
+        <view class="bottom margin_page">
+            <wxc-flex class="wrap" _pid="{{_pid}}">
+                <view>
+                    <image class="bottom_item" bindtap="imgYu" data-src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png" src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png"></image>
+                </view>
+                <view>
+                    <image class="bottom_item" bindtap="imgYu" data-src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png" src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png"></image>
+                </view>
+                <view>
+                    <image class="bottom_item" bindtap="imgYu" data-src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png" src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png"></image>
+                </view>
+            </wxc-flex>
+        </view>
+        <view class="bottom margin_page">
+            <wxc-flex class="wrap" _pid="{{_pid}}">
+                <view>
+                    <image class="bottom_item" bindtap="imgYu" data-src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png" src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png"></image>
+                </view>
+                <view>
+                    <image class="bottom_item" bindtap="imgYu" data-src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png" src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png"></image>
+                </view>
+                <view>
+                    <image class="bottom_item" bindtap="imgYu" data-src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png" src="https://s10.mogucdn.com/mlcdn/c45406/171116_3a30h33df8cj7f651al68hdh7bki7_528x528.png"></image>
+                </view>
+            </wxc-flex>
+        </view>
+    </wxc-flex>
+
+    <layout-foot _pid="{{_pid}}"></layout-foot>
+</view>

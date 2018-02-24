@@ -1,0 +1,22 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Page({
+  //图片点击事件
+  imgYu: function imgYu(event) {
+    var src = event.currentTarget.dataset.src; //获取data-src
+    console.log(src);
+
+    var array = new Array();
+    array.push(src);
+    //var imgList = event.currentTarget.dataset.list; //获取data-list
+    //图片预览
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: array // 需要预览的图片http链接列表
+    });
+  }
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImlkZW50aXR5Lnd4cCJdLCJuYW1lcyI6WyJpbWdZdSIsImV2ZW50Iiwic3JjIiwiY3VycmVudFRhcmdldCIsImRhdGFzZXQiLCJjb25zb2xlIiwibG9nIiwiYXJyYXkiLCJBcnJheSIsInB1c2giLCJ3eCIsInByZXZpZXdJbWFnZSIsImN1cnJlbnQiLCJ1cmxzIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFRRTtBQUNBQSxTQUFPLGVBQVNDLEtBQVQsRUFBZ0I7QUFDckIsUUFBSUMsTUFBS0QsTUFBTUUsYUFBTixDQUFvQkMsT0FBcEIsQ0FBNEJGLEdBQXJDLENBRHFCLENBQ3FCO0FBQzFDRyxZQUFRQyxHQUFSLENBQVlKLEdBQVo7O0FBRUEsUUFBSUssUUFBTSxJQUFJQyxLQUFKLEVBQVY7QUFDQUQsVUFBTUUsSUFBTixDQUFXUCxHQUFYO0FBQ0E7QUFDQTtBQUNBUSxPQUFHQyxZQUFILENBQWdCO0FBQ2RDLGVBQVNWLEdBREssRUFDQTtBQUNkVyxZQUFNTixLQUZRLENBRUY7QUFGRSxLQUFoQjtBQUlEIiwiZmlsZSI6ImlkZW50aXR5Lnd4cCIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IHtcclxuICBjb25maWc6IHtcclxuICAgIHVzaW5nQ29tcG9uZW50czoge1xyXG4gICAgICBcInd4Yy1mbGV4XCI6IFwiQG1pbnVpL3d4Yy1mbGV4XCIsXHJcbiAgICAgIFwid3hjLWljb25cIjogXCJAbWludWkvd3hjLWljb25cIixcclxuICAgICAgXCJ3eGMtYXZhdGFyXCI6IFwiQG1pbnVpL3d4Yy1hdmF0YXJcIlxyXG4gICAgfVxyXG4gIH0sXHJcbiAgLy/lm77niYfngrnlh7vkuovku7ZcclxuICBpbWdZdTogZnVuY3Rpb24oZXZlbnQpIHtcclxuICAgIHZhciBzcmMgPWV2ZW50LmN1cnJlbnRUYXJnZXQuZGF0YXNldC5zcmM7IC8v6I635Y+WZGF0YS1zcmNcclxuICAgIGNvbnNvbGUubG9nKHNyYyk7XHJcblxyXG4gICAgdmFyIGFycmF5PW5ldyBBcnJheSgpO1xyXG4gICAgYXJyYXkucHVzaChzcmMpO1xyXG4gICAgLy92YXIgaW1nTGlzdCA9IGV2ZW50LmN1cnJlbnRUYXJnZXQuZGF0YXNldC5saXN0OyAvL+iOt+WPlmRhdGEtbGlzdFxyXG4gICAgLy/lm77niYfpooTop4hcclxuICAgIHd4LnByZXZpZXdJbWFnZSh7XHJcbiAgICAgIGN1cnJlbnQ6IHNyYywgLy8g5b2T5YmN5pi+56S65Zu+54mH55qEaHR0cOmTvuaOpVxyXG4gICAgICB1cmxzOiBhcnJheSAvLyDpnIDopoHpooTop4jnmoTlm77niYdodHRw6ZO+5o6l5YiX6KGoXHJcbiAgICB9KTtcclxuICB9XHJcbn07Il19

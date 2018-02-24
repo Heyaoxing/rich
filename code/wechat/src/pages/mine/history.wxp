@@ -1,0 +1,172 @@
+<template>
+  <wxc-flex dir="top">
+    <view class="item">
+      <wxc-flex dir="top">
+        <view>
+          <wxc-flex dir="left"> 
+            <view  class="head_left">
+               <wxc-flex dir="top">
+                  <view class="day">11</view>
+                  <view class="month">12月</view>
+               </wxc-flex>
+            </view>
+            <view  class="head_mid">
+              <wxc-flex dir="top">
+                <view class="context">
+                   <wxc-elip line="2">这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。</wxc-elip>
+                </view>
+              </wxc-flex>
+            </view>
+            <view  class="head_right" >
+              <wxc-flex dir="top">
+                  <view>
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">发言</view>
+                      <view class="right_right"> <wxc-icon size="30" type="right"></wxc-icon></view>
+                    </wxc-flex>
+                  </view>
+                  <view>
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">5:09</view>
+                      <view class="right_right">AM</view>
+                    </wxc-flex>
+                  </view>
+              </wxc-flex>
+            </view>
+          </wxc-flex>
+        </view>
+      </wxc-flex>
+    </view>
+     <view class="item">
+      <wxc-flex dir="top">
+        <view>
+          <wxc-flex dir="left"> 
+            <view  class="head_left">
+               <wxc-flex dir="top">
+                  <view class="day">11</view>
+                  <view class="month">12月</view>
+               </wxc-flex>
+            </view>
+            <view  class="head_mid">
+              <wxc-flex dir="top">
+                <view class="context">
+                   <wxc-elip line="2">这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。</wxc-elip>
+                </view>
+              </wxc-flex>
+            </view>
+            <view  class="head_right" >
+              <wxc-flex dir="top">
+                  <view>
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">发言</view>
+                      <view class="right_right"> <wxc-icon size="30" type="right"></wxc-icon></view>
+                    </wxc-flex>
+                  </view>
+                  <view>
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">5:09</view>
+                      <view class="right_right">AM</view>
+                    </wxc-flex>
+                  </view>
+              </wxc-flex>
+            </view>
+          </wxc-flex>
+        </view>
+      </wxc-flex>
+    </view>
+     <view class="item">
+      <wxc-flex dir="top">
+        <view>
+          <wxc-flex dir="left"> 
+            <view  class="head_left">
+               <wxc-flex dir="top">
+                  <view class="day">11</view>
+                  <view class="month">12月</view>
+               </wxc-flex>
+            </view>
+            <view  class="head_mid">
+              <wxc-flex dir="top">
+                <view class="context">
+                   <wxc-elip line="2">这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。</wxc-elip>
+                </view>
+              </wxc-flex>
+            </view>
+            <view  class="head_right" >
+              <wxc-flex dir="top">
+                  <view>
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">发言</view>
+                      <view class="right_right"> <wxc-icon size="30" type="right"></wxc-icon></view>
+                    </wxc-flex>
+                  </view>
+                  <view>
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">5:09</view>
+                      <view class="right_right">AM</view>
+                    </wxc-flex>
+                  </view>
+              </wxc-flex>
+            </view>
+          </wxc-flex>
+        </view>
+      </wxc-flex>
+    </view>
+  </wxc-flex>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      "wxc-icon": "@minui/wxc-icon",
+      "wxc-flex": "@minui/wxc-flex",
+      "wxc-cc": "@minui/wxc-cc",
+      'wxc-elip': '@minui/wxc-elip'
+    }
+  }
+};
+</script>
+
+<style>
+.item{
+  height: 120rpx;
+  margin:20rpx;
+  padding: 10rpx;
+  border-top: 1rpx #f1f1f1 solid;
+  border-left: 1rpx #f1f1f1 solid;
+  border-right: 1rpx #f1f1f1 solid;
+  border-bottom: 5rpx #d1d1d1 solid;
+}
+.head_left{
+  width: 20%;
+}
+.head_mid{
+  width: 65%;
+}
+.head_right{
+  line-height: 55rpx;
+  padding-top:10rpx;
+  width: 15%;
+}
+.day{
+  font-size: 50rpx;
+}
+.month{
+  font-size: 30rpx;
+  margin-left: 55rpx;
+}
+.context{
+  line-height: 55rpx;
+  padding-top:10rpx;
+  font-size:30rpx; 
+}
+.right_left{
+  width: 60%;
+  font-size: 25rpx;
+  color: #aaaaaa;
+}
+.right_right{
+  width: 40%;
+  font-size: 25rpx;
+}
+</style>

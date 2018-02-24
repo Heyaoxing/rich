@@ -1,0 +1,31 @@
+.top {
+  height: 350rpx;
+  display: block;
+  padding: 2%;
+  border-bottom: #f2f2f2 1rpx solid;
+}
+.mid {
+  height: 150rpx;
+  display: block;
+  padding: 2%;
+}
+.bottom {
+  display: block;
+  padding: 5%;
+}
+.btn_default {
+  background: #f2f2f2;
+}
+.bottom_item {
+  padding: 2%;
+  border-bottom: #f2f2f2 1rpx solid;
+}
+.avatar {
+  display: inline-block;
+  margin-right: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.open_page{
+   border: #f2f2f2 1rpx solid;
+}

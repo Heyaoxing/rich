@@ -1,0 +1,126 @@
+<view>
+    <!-- <layout-head></layout-head> -->
+
+    <!-- wxp template -->
+    <wxc-flex dir="top" _pid="{{_pid}}">
+        <view class="item">
+            <wxc-flex dir="top" _pid="{{_pid}}">
+                <view>
+                    <wxc-flex dir="left" _pid="{{_pid}}">
+                        <view class="head_left">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view class="day">11</view>
+                                <view class="month">12月</view>
+                            </wxc-flex>
+                        </view>
+                        <view class="head_mid">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view class="context">
+                                    <wxc-elip line="2" _pid="{{_pid}}">这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。</wxc-elip>
+                                </view>
+                            </wxc-flex>
+                        </view>
+                        <view class="head_right">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">发言</view>
+                                        <view class="right_right">
+                                            <wxc-icon size="30" type="right" _pid="{{_pid}}"></wxc-icon>
+                                        </view>
+                                    </wxc-flex>
+                                </view>
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">5:09</view>
+                                        <view class="right_right">AM</view>
+                                    </wxc-flex>
+                                </view>
+                            </wxc-flex>
+                        </view>
+                    </wxc-flex>
+                </view>
+            </wxc-flex>
+        </view>
+        <view class="item">
+            <wxc-flex dir="top" _pid="{{_pid}}">
+                <view>
+                    <wxc-flex dir="left" _pid="{{_pid}}">
+                        <view class="head_left">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view class="day">11</view>
+                                <view class="month">12月</view>
+                            </wxc-flex>
+                        </view>
+                        <view class="head_mid">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view class="context">
+                                    <wxc-elip line="2" _pid="{{_pid}}">这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。</wxc-elip>
+                                </view>
+                            </wxc-flex>
+                        </view>
+                        <view class="head_right">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">发言</view>
+                                        <view class="right_right">
+                                            <wxc-icon size="30" type="right" _pid="{{_pid}}"></wxc-icon>
+                                        </view>
+                                    </wxc-flex>
+                                </view>
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">5:09</view>
+                                        <view class="right_right">AM</view>
+                                    </wxc-flex>
+                                </view>
+                            </wxc-flex>
+                        </view>
+                    </wxc-flex>
+                </view>
+            </wxc-flex>
+        </view>
+        <view class="item">
+            <wxc-flex dir="top" _pid="{{_pid}}">
+                <view>
+                    <wxc-flex dir="left" _pid="{{_pid}}">
+                        <view class="head_left">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view class="day">11</view>
+                                <view class="month">12月</view>
+                            </wxc-flex>
+                        </view>
+                        <view class="head_mid">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view class="context">
+                                    <wxc-elip line="2" _pid="{{_pid}}">这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。这是一段 2 行截断的文字。</wxc-elip>
+                                </view>
+                            </wxc-flex>
+                        </view>
+                        <view class="head_right">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">发言</view>
+                                        <view class="right_right">
+                                            <wxc-icon size="30" type="right" _pid="{{_pid}}"></wxc-icon>
+                                        </view>
+                                    </wxc-flex>
+                                </view>
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">5:09</view>
+                                        <view class="right_right">AM</view>
+                                    </wxc-flex>
+                                </view>
+                            </wxc-flex>
+                        </view>
+                    </wxc-flex>
+                </view>
+            </wxc-flex>
+        </view>
+    </wxc-flex>
+
+    <layout-foot _pid="{{_pid}}"></layout-foot>
+</view>

@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/life/circle",
+    "pages/mine/activity",
+    "pages/mine/history",
+    "pages/mine/identity",
+    "pages/mine/score",
+    "pages/mine/show",
+    "pages/mine/speak"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#efefef",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "MinUI",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#28b1b0",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "common/assets/tab/coms-normal.png",
+        "selectedIconPath": "common/assets/tab/coms-active.png",
+        "text": "广场"
+      },
+      {
+        "pagePath": "pages/life/circle",
+        "iconPath": "common/assets/tab/tools-normal.png",
+        "selectedIconPath": "common/assets/tab/tools-active.png",
+        "text": "圈子"
+      },
+      {
+        "pagePath": "pages/mine/show",
+        "iconPath": "common/assets/tab/about-normal.png",
+        "selectedIconPath": "common/assets/tab/about-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000
+  }
+}

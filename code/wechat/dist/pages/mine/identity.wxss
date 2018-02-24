@@ -1,0 +1,33 @@
+.margin_page {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.iden_head {
+  padding-bottom: 40rpx;
+  border-bottom: 1rpx rgb(196, 196, 196) dashed;
+}
+.avatar {
+  display: inline-block;
+  margin-right: 20rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.shop_text {
+  font-size: 1.8em;
+}
+.type_text {
+  color: rgb(148, 148, 148);
+}
+.mid {
+  padding-top: 40rpx;
+}
+.mid_item {
+  padding-bottom: 2%;
+  border-bottom: #f2f2f2 1rpx solid;
+}
+.bottom_item {
+  width: 200rpx;
+  height: 200rpx;
+  padding: 15rpx;
+}

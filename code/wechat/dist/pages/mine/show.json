@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "layout-foot": "../../common/layout/foot",
+    "wxc-icon": "../../packages/@minui/wxc-icon/dist/index",
+    "wxc-flex": "../../packages/@minui/wxc-flex/dist/index",
+    "wxc-avatar": "../../packages/@minui/wxc-avatar/dist/index",
+    "wxc-label": "../../packages/@minui/wxc-label/dist/index",
+    "wxc-cc": "../../packages/@minui/wxc-cc/dist/index"
+  }
+}

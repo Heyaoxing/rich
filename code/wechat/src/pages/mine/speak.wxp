@@ -1,0 +1,42 @@
+<template>
+    <view class="top">
+      <textarea  class="speak_input" placeholder="请输入发言内容" focus=true maxlength=500 />
+    </view>
+
+    <view class="mid">
+      <wxc-flex  main="between" cross="center">
+        <view class="item">
+          <wxc-icon size="20" type="corcer-r"></wxc-icon> <text> 广东.深圳市</text>
+        </view>
+        <view class="item">
+          <speak-success></speak-success>
+        </view>
+      </wxc-flex>
+    </view>
+
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      "wxc-icon": "@minui/wxc-icon",
+      "wxc-flex": "@minui/wxc-flex",
+      'speak-success': './toast/speak-success'
+    }
+  }
+};
+</script>
+
+<style>
+.speak_input {
+  margin: 10rpx;
+  border: #f2f2f2 1rpx solid;
+}
+.item {
+  display: block;
+}
+.mid {
+  margin: 10rpx;
+}
+</style>

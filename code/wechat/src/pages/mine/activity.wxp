@@ -1,0 +1,13 @@
+<template>
+  <text>活动</text>
+</template>
+
+<script>
+export default {
+};
+
+</script>
+
+<style>
+
+</style>

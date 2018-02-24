@@ -1,0 +1,47 @@
+.item{
+  height: 120rpx;
+  margin:20rpx;
+  padding: 10rpx;
+  border-top: 1rpx #f1f1f1 solid;
+  border-left: 1rpx #f1f1f1 solid;
+  border-right: 1rpx #f1f1f1 solid;
+  border-bottom: 5rpx #d1d1d1 solid;
+}
+.head_left{
+  width: 20%;
+}
+.head_mid{
+  width: 65%;
+}
+.head_right{
+  line-height: 55rpx;
+  padding-top:10rpx;
+  width: 15%;
+}
+.context{
+  line-height: 55rpx;
+  padding-top:10rpx;
+  font-size:30rpx; 
+}
+.right_left{
+  width: 50%;
+  font-size: 25rpx;
+  color: #aaaaaa;
+}
+.right_right{
+  width: 50%;
+  font-size: 25rpx;
+}
+ 
+ .context{
+   margin-left:20rpx; 
+   color: #aaaaaa;
+ }
+.avatar {
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+}
+.point{
+  font-weight: bold;
+}

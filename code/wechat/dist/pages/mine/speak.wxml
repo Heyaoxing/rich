@@ -1,0 +1,23 @@
+<view>
+    <!-- <layout-head></layout-head> -->
+
+    <!-- wxp template -->
+    <view class="top">
+        <textarea class="speak_input" placeholder="请输入发言内容" focus="true" maxlength="500">
+        </textarea>
+    </view>
+
+    <view class="mid">
+        <wxc-flex main="between" cross="center" _pid="{{_pid}}">
+            <view class="item">
+                <wxc-icon size="20" type="corcer-r" _pid="{{_pid}}"></wxc-icon>
+                <text> 广东.深圳市</text>
+            </view>
+            <view class="item">
+                <speak-success _pid="{{_pid}}"></speak-success>
+            </view>
+        </wxc-flex>
+    </view>
+
+    <layout-foot _pid="{{_pid}}"></layout-foot>
+</view>

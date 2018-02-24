@@ -1,0 +1,2 @@
+<wxc-toast is-show="{{$toast.show}}" text="发表成功" icon="yes" icon-color="#ff5777" _pid="{{_pid}}"></wxc-toast>
+<button bindtap="showToast" class="speak_btn" size="mini" type="primary">发表</button>

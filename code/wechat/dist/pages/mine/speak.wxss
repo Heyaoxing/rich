@@ -1,0 +1,10 @@
+.speak_input {
+  margin: 10rpx;
+  border: #f2f2f2 1rpx solid;
+}
+.item {
+  display: block;
+}
+.mid {
+  margin: 10rpx;
+}

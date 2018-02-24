@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "layout-foot": "../../common/layout/foot",
+    "wxc-icon": "../../packages/@minui/wxc-icon/dist/index",
+    "wxc-flex": "../../packages/@minui/wxc-flex/dist/index",
+    "speak-success": "./toast/speak-success"
+  }
+}

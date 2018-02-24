@@ -1,0 +1,48 @@
+<view>
+    <!-- <layout-head></layout-head> -->
+
+    <!-- wxp template -->
+    <wxc-flex dir="top" _pid="{{_pid}}">
+        <view class="item">
+            <wxc-flex dir="top" _pid="{{_pid}}">
+                <view>
+                    <wxc-flex dir="left" _pid="{{_pid}}">
+                        <view class="head_left">
+                            <wxc-avatar class="avatar" src="https://s11.mogucdn.com/p2/170413/upload_86dkh4e886991g9lji7a6g5c530ji_400x400.jpg" _pid="{{_pid}}"></wxc-avatar>
+                        </view>
+                        <view class="head_mid">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view class="score">
+                                    评分
+                                </view>
+                                <view class="context">
+                                    评价
+                                </view>
+                            </wxc-flex>
+                        </view>
+                        <view class="head_right">
+                            <wxc-flex dir="top" _pid="{{_pid}}">
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">12
+                                            <text class="point">·</text>
+                                        </view>
+                                        <view class="right_right"> 11月</view>
+                                    </wxc-flex>
+                                </view>
+                                <view>
+                                    <wxc-flex dir="left" _pid="{{_pid}}">
+                                        <view class="right_left">5:09</view>
+                                        <view class="right_right">AM</view>
+                                    </wxc-flex>
+                                </view>
+                            </wxc-flex>
+                        </view>
+                    </wxc-flex>
+                </view>
+            </wxc-flex>
+        </view>
+    </wxc-flex>
+
+    <layout-foot _pid="{{_pid}}"></layout-foot>
+</view>

@@ -1,0 +1,8 @@
+<view>
+    <!-- <layout-head></layout-head> -->
+
+    <!-- wxp template -->
+    <text>活动</text>
+
+    <layout-foot _pid="{{_pid}}"></layout-foot>
+</view>

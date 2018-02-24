@@ -1,0 +1,94 @@
+<template>
+ <wxc-flex dir="top" main="start" >
+    <view class="top">
+      <wxc-flex dir="left" main="around" >
+        <view class="top_left">
+          <wxc-flex dir="bottom">
+             <text>名声:99+</text>
+          </wxc-flex>
+        </view>
+        <view class="top_mid">
+           <wxc-cc>
+               <wxc-avatar  class="avatar" src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png"></wxc-avatar>
+           </wxc-cc>
+        </view>
+        <view class="top_right">
+           <wxc-flex dir="bottom">
+             <text>好评:80%</text>
+          </wxc-flex>
+        </view>
+      </wxc-flex>
+
+    </view>
+    <view class="mid open_page">
+       <wxc-flex dir="left" main="around" >
+        <view class="mid_left">
+           <wxc-cc>
+             <navigator url="speak"  hover-class="navigator-hover">发言</navigator>
+           </wxc-cc>
+        </view>
+        <view class="mid_right">
+           <wxc-cc>
+               <navigator url="activity"  hover-class="navigator-hover">活动</navigator>
+           </wxc-cc>
+        </view>
+      </wxc-flex>
+    </view>
+    <view class="bottom">
+      <wxc-flex dir="top" main="around" >
+        <view class="bottom_item"> <navigator url="identity"><wxc-icon size="30" type="home"></wxc-icon>  名片</navigator></view>
+        <view class="bottom_item"><navigator url="score"><wxc-icon size="30" type="yes"></wxc-icon>  口碑</navigator></view>
+        <view class="bottom_item"> <navigator url="history"><wxc-icon size="30" type="right"></wxc-icon>  历史</navigator></view>
+      </wxc-flex>
+    </view>
+  </wxc-flex>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      "wxc-icon": "@minui/wxc-icon",
+      "wxc-flex": "@minui/wxc-flex",
+      "wxc-avatar": "@minui/wxc-avatar",
+      "wxc-label": "@minui/wxc-label",
+      "wxc-cc": "@minui/wxc-cc"
+    }
+  }
+};
+
+</script>
+
+<style>
+.top {
+  height: 350rpx;
+  display: block;
+  padding: 2%;
+  border-bottom: #f2f2f2 1rpx solid;
+}
+.mid {
+  height: 150rpx;
+  display: block;
+  padding: 2%;
+}
+.bottom {
+  display: block;
+  padding: 5%;
+}
+.btn_default {
+  background: #f2f2f2;
+}
+.bottom_item {
+  padding: 2%;
+  border-bottom: #f2f2f2 1rpx solid;
+}
+.avatar {
+  display: inline-block;
+  margin-right: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.open_page{
+   border: #f2f2f2 1rpx solid;
+}
+</style>

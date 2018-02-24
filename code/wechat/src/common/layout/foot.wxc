@@ -1,0 +1,12 @@
+<template>
+  <navigator url="/pages/home/index">
+  </navigator>
+</template>
+<script>
+export default {
+};
+</script>
+
+<style>
+
+</style>

@@ -1,0 +1,105 @@
+<template>
+  <wxc-flex dir="top">
+    <view class="item">
+      <wxc-flex dir="top">
+        <view>
+          <wxc-flex dir="left"> 
+            <view  class="head_left">
+                <wxc-avatar class="avatar" src="https://s11.mogucdn.com/p2/170413/upload_86dkh4e886991g9lji7a6g5c530ji_400x400.jpg"></wxc-avatar>
+            </view>
+            <view  class="head_mid">
+              <wxc-flex dir="top">
+                <view class="score"> 
+                  评分
+                </view>
+                <view class="context">
+                  评价
+                </view>
+              </wxc-flex>
+            </view>
+            <view  class="head_right" >
+              <wxc-flex dir="top">
+                  <view>
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">12<text class="point">·</text></view>
+                      <view class="right_right"> 11月</view>
+                    </wxc-flex>
+                  </view>
+                  <view>  
+                    <wxc-flex dir="left"> 
+                      <view class="right_left">5:09</view>
+                      <view class="right_right">AM</view>
+                    </wxc-flex>
+                  </view>
+              </wxc-flex>
+            </view>
+          </wxc-flex>
+        </view>
+      </wxc-flex>
+    </view>
+  </wxc-flex>
+</template>
+
+<script>
+export default {
+  config: {
+    usingComponents: {
+      "wxc-icon": "@minui/wxc-icon",
+      "wxc-flex": "@minui/wxc-flex",
+      "wxc-cc": "@minui/wxc-cc",
+      'wxc-elip': '@minui/wxc-elip',
+      'wxc-avatar': '@minui/wxc-avatar'
+    }
+  }
+};
+</script>
+
+<style>
+.item{
+  height: 120rpx;
+  margin:20rpx;
+  padding: 10rpx;
+  border-top: 1rpx #f1f1f1 solid;
+  border-left: 1rpx #f1f1f1 solid;
+  border-right: 1rpx #f1f1f1 solid;
+  border-bottom: 5rpx #d1d1d1 solid;
+}
+.head_left{
+  width: 20%;
+}
+.head_mid{
+  width: 65%;
+}
+.head_right{
+  line-height: 55rpx;
+  padding-top:10rpx;
+  width: 15%;
+}
+.context{
+  line-height: 55rpx;
+  padding-top:10rpx;
+  font-size:30rpx; 
+}
+.right_left{
+  width: 50%;
+  font-size: 25rpx;
+  color: #aaaaaa;
+}
+.right_right{
+  width: 50%;
+  font-size: 25rpx;
+}
+ 
+ .context{
+   margin-left:20rpx; 
+   color: #aaaaaa;
+ }
+.avatar {
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+}
+.point{
+  font-weight: bold;
+}
+</style>
