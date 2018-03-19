@@ -11,8 +11,6 @@
 	<!-- 开启AOP注解扫描 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 
-
-
 	<!-- 事务管理器，依赖于数据源 -->
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
@@ -37,6 +35,8 @@
 	<!--&lt;!&ndash; 设置AOP，让Spring自动对目标生成代理，需要使用AspectJ表达式 &ndash;&gt;-->
 	<!--<aop:config proxy-target-class="true">-->
 		<!--&lt;!&ndash; 切面：整合切入点和通知 &ndash;&gt;-->
-		<!--<aop:advisor advice-ref="txAdvice" pointcut="within(.comrich.web..*)" />-->
+		<!--&lt;!&ndash;<aop:advisor advice-ref="txAdvice" pointcut="within(comrich.web..*)" />&ndash;&gt;-->
 	<!--</aop:config>-->
+
+
 </beans>
