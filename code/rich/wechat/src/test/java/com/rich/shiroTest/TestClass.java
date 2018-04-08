@@ -1,5 +1,6 @@
 package com.rich.shiroTest;
 
+import comr.ich.common.utils.PermsUtil;
 import junit.framework.Assert;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -13,23 +14,30 @@ import org.junit.Test;
 public class TestClass {
     @Test
     public void testHelloworld() {
-          //1、获取 SecurityManager 工厂，此处使用 Ini 配置文件初始化 SecurityManager
+        //1、获取 SecurityManager 工厂，此处使用 Ini 配置文件初始化 SecurityManager
         Factory<SecurityManager> factory =
                 new IniSecurityManagerFactory("classpath:shiro.ini");
-          //2、得到 SecurityManager 实例 并绑定给 SecurityUtils
+        //2、得到 SecurityManager 实例 并绑定给 SecurityUtils
         org.apache.shiro.mgt.SecurityManager securityManager = factory.getInstance();
         SecurityUtils.setSecurityManager(securityManager);
-          //3、得到 Subject 及创建用户名/密码身份验证 Token（即用户身份/凭证）
+        //3、得到 Subject 及创建用户名/密码身份验证 Token（即用户身份/凭证）
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken("zhang", "123");
         try {
-          //4、登录，即身份验证
+            //4、登录，即身份验证
             subject.login(token);
         } catch (AuthenticationException e) {
-          //5、身份验证失败
+            //5、身份验证失败
+            System.out.print(e);
         }
         Assert.assertEquals(true, subject.isAuthenticated());           //断言用户已经登录
-          //6、退出
+        //6、退出
         subject.logout();
+    }
+
+    @Test
+    public void TestPerms() {
+        String url = "/order/add";
+        System.out.println(PermsUtil.uriToPerms(url));
     }
 }

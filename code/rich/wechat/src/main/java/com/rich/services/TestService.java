@@ -5,9 +5,10 @@ import com.rich.Metrics.TimeType;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TestService {
-    @MetricsTimer ( timeTyper= TimeType.TowMinute)
+public class TestService implements ITestService {
+//    @MetricsTimer ( timeTyper= TimeType.TowMinute)
+    @Override
     public void method(){
-        System.out.println("测试服务类");
+        System.out.println("+++++++++++++++++Test Service ++++++++++++++++++++++");
     }
 }

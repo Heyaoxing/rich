@@ -24,15 +24,11 @@ class homeController {
     private BusinessSortInfoMapper businessSortInfoDao;
 
     @Autowired
-    private TestService service;
-
-    @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
     @ResponseBody
     @RequestMapping ( "/index" )
     public PageBaseInfo<String> get() {
-        service.method();
         BusinessSortInfo result = businessSortInfoDao.selectByPrimaryKey(1);
         PageBaseInfo pageBaseInfo=new PageBaseInfo();
         List list=new ArrayList();

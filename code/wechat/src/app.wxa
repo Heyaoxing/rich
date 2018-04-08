@@ -36,10 +36,10 @@
             text: '广场'
           },
           {
-            pagePath: 'pages/life/circle',
+            pagePath: 'pages/nearby/circle',
             iconPath: 'common/assets/tab/tools-normal.png',
             selectedIconPath: 'common/assets/tab/tools-active.png',
-            text: '圈子' 
+            text: '附近' 
           },
           {
             pagePath: 'pages/mine/show',

@@ -34,8 +34,19 @@
         </constructor-arg>
     </bean>
 
+    <bean id="operateProcessorMap" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="testService"><bean class="com.rich.services.TestService"/></entry>
+                <entry key="processService"><bean class="com.rich.services.ProcessService"/></entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
     <!-- 实际执行消息消费的类 -->
-    <bean id="messageListernerConsumerService" class="com.rich.Listener.CustomerListener"/>
+    <bean id="messageListernerConsumerService" class="com.rich.Listener.CustomerListener">
+        <property name="operateProcessorMap" ref="operateProcessorMap"/>
+    </bean>
 
     <!-- 消费者容器配置信息 -->
     <bean id="containerProperties" class="org.springframework.kafka.listener.config.ContainerProperties">

@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/life/circle",
     "pages/mine/activity",
     "pages/mine/history",
     "pages/mine/identity",
     "pages/mine/score",
     "pages/mine/show",
-    "pages/mine/speak"
+    "pages/mine/speak",
+    "pages/nearby/circle"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -29,10 +29,10 @@
         "text": "广场"
       },
       {
-        "pagePath": "pages/life/circle",
+        "pagePath": "pages/nearby/circle",
         "iconPath": "common/assets/tab/tools-normal.png",
         "selectedIconPath": "common/assets/tab/tools-active.png",
-        "text": "圈子"
+        "text": "附近"
       },
       {
         "pagePath": "pages/mine/show",

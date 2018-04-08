@@ -11,7 +11,8 @@
     "@minui/wxc-icon": "^1.0.6",
     "@minui/wxc-label": "^1.0.3",
     "@minui/wxc-tab": "^1.0.5",
-    "@minui/wxc-toast": "^1.0.6"
+    "@minui/wxc-toast": "^1.0.6",
+    "npm": "^5.8.0"
   },
   "devDependencies": {
     "babel-plugin-syntax-export-extensions": "^6.13.0",
