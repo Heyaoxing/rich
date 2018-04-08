@@ -36,7 +36,7 @@
             text: '广场'
           },
           {
-            pagePath: 'pages/nearby/circle',
+            pagePath: 'pages/nearby/show',
             iconPath: 'common/assets/tab/tools-normal.png',
             selectedIconPath: 'common/assets/tab/tools-active.png',
             text: '附近' 
@@ -62,7 +62,7 @@
 
 <style>
 page {
-  background-color: #F8F8F8;
+  background-color: rgb(255, 255, 255);
   height: 100%;
   font-size: 32rpx;
   line-height: 1.5;

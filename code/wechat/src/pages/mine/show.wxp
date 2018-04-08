@@ -24,12 +24,12 @@
        <wxc-flex dir="left" main="around" >
         <view class="mid_left">
            <wxc-cc>
-             <navigator url="speak"  hover-class="navigator-hover">发言</navigator>
+             <navigator url="speak"  hover-class="navigator-hover">发布</navigator>
            </wxc-cc>
         </view>
         <view class="mid_right">
            <wxc-cc>
-               <navigator url="activity"  hover-class="navigator-hover">活动</navigator>
+               <navigator url="history"  hover-class="navigator-hover">历史</navigator>
            </wxc-cc>
         </view>
       </wxc-flex>
@@ -38,7 +38,6 @@
       <wxc-flex dir="top" main="around" >
         <view class="bottom_item"> <navigator url="identity"><wxc-icon size="30" type="home"></wxc-icon>  名片</navigator></view>
         <view class="bottom_item"><navigator url="score"><wxc-icon size="30" type="yes"></wxc-icon>  口碑</navigator></view>
-        <view class="bottom_item"> <navigator url="history"><wxc-icon size="30" type="right"></wxc-icon>  历史</navigator></view>
       </wxc-flex>
     </view>
   </wxc-flex>

@@ -7,7 +7,7 @@
     "pages/mine/score",
     "pages/mine/show",
     "pages/mine/speak",
-    "pages/nearby/circle"
+    "pages/nearby/show"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -29,7 +29,7 @@
         "text": "广场"
       },
       {
-        "pagePath": "pages/nearby/circle",
+        "pagePath": "pages/nearby/show",
         "iconPath": "common/assets/tab/tools-normal.png",
         "selectedIconPath": "common/assets/tab/tools-active.png",
         "text": "附近"
