@@ -3,87 +3,29 @@
 
     <!-- wxp template -->
     <wxc-flex dir="top" _pid="{{_pid}}">
-        <view class="item">
+        <view class="item" wx:for="{{nearby}}">
             <wxc-flex dir="top" _pid="{{_pid}}">
                 <view class="context">
                     <wxc-flex dir="left" cross="center" main="between" _pid="{{_pid}}">
                         <view>
                             <wxc-flex cross="center" _pid="{{_pid}}">
-                                <wxc-avatar class="avatar" width="" src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png" _pid="{{_pid}}"></wxc-avatar>
-                                <text class="user">世恒家具 · 梅州</text>
+                                <wxc-avatar class="avatar" width="" src="{{item.avatarUrl}}" _pid="{{_pid}}"></wxc-avatar>
+                                <text class="user">{{item.userName}} · {{item.address}}</text>
                             </wxc-flex>
                         </view>
                         <view>
-                            <text class="user">好评:90%</text>
+                            <text class="user">好评:{{item.praise}}</text>
                         </view>
                     </wxc-flex>
-                    <wxc-elip class="name" _pid="{{_pid}}">惊喜价格！！仅此一天</wxc-elip>
-                    <wxc-elip class="price" _pid="{{_pid}}">价格:210-625元</wxc-elip>
+                    <wxc-elip class="name" _pid="{{_pid}}">{{item.name}}</wxc-elip>
+                    <wxc-elip class="price" _pid="{{_pid}}">价格:{{item.startPrice}}-{{item.endPrice}}元</wxc-elip>
                     <wxc-flex dir="left" main="between" _pid="{{_pid}}">
                         <view>
-                            <text>今天 15:31</text>
+                            <text>{{item.publicOnString}}</text>
                         </view>
                         <view>
                             <wxc-icon size="35" type="address" _pid="{{_pid}}"></wxc-icon>
-                            <text> 354米</text>
-                        </view>
-                    </wxc-flex>
-                </view>
-            </wxc-flex>
-        </view>
-
-        <view class="item">
-            <wxc-flex dir="top" _pid="{{_pid}}">
-                <view class="context">
-                    <wxc-flex dir="left" cross="center" main="between" _pid="{{_pid}}">
-                        <view>
-                            <wxc-flex cross="center" _pid="{{_pid}}">
-                                <wxc-avatar class="avatar" width="" src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png" _pid="{{_pid}}"></wxc-avatar>
-                                <text class="user">世恒家具 · 梅州</text>
-                            </wxc-flex>
-                        </view>
-                        <view>
-                            <text class="user">好评:56%</text>
-                        </view>
-                    </wxc-flex>
-                    <wxc-elip class="name" _pid="{{_pid}}">全新家具春节大促销！！</wxc-elip>
-                    <wxc-elip class="price" _pid="{{_pid}}">价格:210-625元</wxc-elip>
-                    <wxc-flex dir="left" main="between" _pid="{{_pid}}">
-                        <view>
-                            <text>今天 15:31</text>
-                        </view>
-                        <view>
-                            <wxc-icon size="35" type="address" _pid="{{_pid}}"></wxc-icon>
-                            <text> 852米</text>
-                        </view>
-                    </wxc-flex>
-                </view>
-            </wxc-flex>
-        </view>
-
-        <view class="item">
-            <wxc-flex dir="top" _pid="{{_pid}}">
-                <view class="context">
-                    <wxc-flex dir="left" cross="center" main="between" _pid="{{_pid}}">
-                        <view>
-                            <wxc-flex cross="center" _pid="{{_pid}}">
-                                <wxc-avatar class="avatar" width="" src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png" _pid="{{_pid}}"></wxc-avatar>
-                                <text class="user">光电家具 · 梅州</text>
-                            </wxc-flex>
-                        </view>
-                        <view>
-                            <text class="user">好评:72%</text>
-                        </view>
-                    </wxc-flex>
-                    <wxc-elip class="name" _pid="{{_pid}}">家具新人好礼！！</wxc-elip>
-                    <wxc-elip class="price" _pid="{{_pid}}">价格:110-326元</wxc-elip>
-                    <wxc-flex dir="left" main="between" _pid="{{_pid}}">
-                        <view>
-                            <text>今天 13:21</text>
-                        </view>
-                        <view>
-                            <wxc-icon size="35" type="address" _pid="{{_pid}}"></wxc-icon>
-                            <text> 160米</text>
+                            <text> {{item.distance}}米</text>
                         </view>
                     </wxc-flex>
                 </view>

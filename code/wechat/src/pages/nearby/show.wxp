@@ -1,66 +1,23 @@
 <template>
+
   <wxc-flex dir="top">
-    <view class="item">
+    <view class="item"  wx:for="{{nearby}}">
       <wxc-flex dir="top">
             <view class="context">
               <wxc-flex dir="left" cross="center" main="between">
                 <view>
                     <wxc-flex cross="center">
-                       <wxc-avatar  class="avatar" width src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png"></wxc-avatar>
-                       <text class="user">世恒家具 · 梅州</text>
+                       <wxc-avatar  class="avatar" width src="{{item.avatarUrl}}"></wxc-avatar>
+                       <text class="user">{{item.userName}} · {{item.address}}</text>
                     </wxc-flex>
                 </view>
-                <view><text  class="user">好评:90%</text></view>
+                <view><text  class="user">好评:{{item.praise}}</text></view>
               </wxc-flex>
-              <wxc-elip class="name">惊喜价格！！仅此一天</wxc-elip>
-              <wxc-elip class="price">价格:210-625元</wxc-elip>
+              <wxc-elip class="name">{{item.name}}</wxc-elip>
+              <wxc-elip class="price">价格:{{item.startPrice}}-{{item.endPrice}}元</wxc-elip>
               <wxc-flex dir="left" main="between">
-                <view><text>今天 15:31</text></view>
-                <view><wxc-icon size="35" type="address"></wxc-icon><text> 354米</text></view>
-              </wxc-flex>
-            </view>
-      </wxc-flex>
-    </view>
-
-     <view class="item">
-      <wxc-flex dir="top">
-            <view class="context">
-              <wxc-flex dir="left" cross="center" main="between">
-                <view>
-                    <wxc-flex cross="center">
-                       <wxc-avatar  class="avatar" width src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png"></wxc-avatar>
-                       <text class="user">世恒家具 · 梅州</text>
-                    </wxc-flex>
-                </view>
-                <view><text  class="user">好评:56%</text></view>
-              </wxc-flex>
-              <wxc-elip class="name">全新家具春节大促销！！</wxc-elip>
-              <wxc-elip class="price">价格:210-625元</wxc-elip>
-              <wxc-flex dir="left" main="between">
-                <view><text>今天 15:31</text></view>
-                <view><wxc-icon size="35" type="address"></wxc-icon><text> 852米</text></view>
-              </wxc-flex>
-            </view>
-      </wxc-flex>
-    </view>
-
-     <view class="item">
-      <wxc-flex dir="top">
-            <view class="context">
-              <wxc-flex dir="left" cross="center" main="between">
-                <view>
-                    <wxc-flex cross="center">
-                       <wxc-avatar  class="avatar" width src="https://s10.mogucdn.com/mlcdn/c45406/171116_62f571l0ki0ffcg94h6kg6452h497_356x356.png"></wxc-avatar>
-                       <text class="user">光电家具 · 梅州</text>
-                    </wxc-flex>
-                </view>
-                <view><text  class="user">好评:72%</text></view>
-              </wxc-flex>
-              <wxc-elip class="name">家具新人好礼！！</wxc-elip>
-              <wxc-elip class="price">价格:110-326元</wxc-elip>
-              <wxc-flex dir="left" main="between">
-                <view><text>今天 13:21</text></view>
-                <view><wxc-icon size="35" type="address"></wxc-icon><text> 160米</text></view>
+                <view><text>{{item.publicOnString}}</text></view>
+                <view><wxc-icon size="35" type="address"></wxc-icon><text> {{item.distance}}米</text></view>
               </wxc-flex>
             </view>
       </wxc-flex>
@@ -78,6 +35,44 @@ export default {
       "wxc-avatar": "@minui/wxc-avatar",
       "wxc-elip": "@minui/wxc-elip"
     }
+  },
+  data: {
+    nearby: []
+  },
+  onLoad: function(event) {
+    var that = this;
+    var latitude = 0;
+    var longitude = 0;
+    wx.getLocation({
+      type: "wgs84",
+      success: function(res) {
+         latitude = res.latitude;
+         longitude = res.longitude;
+      }
+    });
+    console.log("latitude:"+latitude+" longitude:"+longitude);
+    
+    wx.request({
+      url: "http://192.168.56.1:8889/rich/dev/api/nearby/show", //仅为示例，并非真实的接口地址
+      header: {
+        "content-type": "application/json"
+      }, 
+      method: "POST",
+      data: {
+        lat:latitude,
+        lng:longitude,
+        currPage: 1,
+        pageSize: 20
+      },
+      success: function(res) {
+        //更新数据 
+        that.setData({
+          nearby: res.data.nearbyShow
+        });
+
+        console.log(that.data.nearby);
+      }
+    });
   }
 };
 </script>
@@ -101,7 +96,7 @@ export default {
   color: #3d3d3d;
 }
 .price {
-  font-weight: 100; 
+  font-weight: 100;
   font-size: 30rpx;
   color: #3d3d3d;
 }
@@ -111,7 +106,7 @@ export default {
   width: 50rpx;
   height: 50rpx;
 }
-.user{
+.user {
   color: #818181;
 }
 </style>
