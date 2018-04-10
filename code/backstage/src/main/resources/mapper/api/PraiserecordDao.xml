@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.PraiserecordDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Praiserecord" id="praiserecordMap">
+        <result property="praiseId" column="Praise_ID"/>
+        <result property="useriId" column="UserI_ID"/>
+        <result property="praiserUserid" column="Praiser_UserID"/>
+        <result property="score" column="Score"/>
+        <result property="evaluation" column="Evaluation"/>
+        <result property="agreeNumber" column="Agree_Number"/>
+        <result property="disagreeNumber" column="Disagree_Number"/>
+        <result property="createdon" column="CreatedOn"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Praiserecord">
+		select * from praiserecord where Praise_ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Praiserecord">
+		select * from praiserecord
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by Praise_ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from praiserecord 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Praiserecord">
+		insert into praiserecord
+		(
+			`Praise_ID`, 
+			`UserI_ID`, 
+			`Praiser_UserID`, 
+			`Score`, 
+			`Evaluation`, 
+			`Agree_Number`, 
+			`Disagree_Number`, 
+			`CreatedOn`
+		)
+		values
+		(
+			#{praiseId}, 
+			#{useriId}, 
+			#{praiserUserid}, 
+			#{score}, 
+			#{evaluation}, 
+			#{agreeNumber}, 
+			#{disagreeNumber}, 
+			#{createdon}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Praiserecord">
+		update praiserecord 
+		<set>
+			<if test="useriId != null">`UserI_ID` = #{useriId}, </if>
+			<if test="praiserUserid != null">`Praiser_UserID` = #{praiserUserid}, </if>
+			<if test="score != null">`Score` = #{score}, </if>
+			<if test="evaluation != null">`Evaluation` = #{evaluation}, </if>
+			<if test="agreeNumber != null">`Agree_Number` = #{agreeNumber}, </if>
+			<if test="disagreeNumber != null">`Disagree_Number` = #{disagreeNumber}, </if>
+			<if test="createdon != null">`CreatedOn` = #{createdon}</if>
+		</set>
+		where Praise_ID = #{praiseId}
+	</update>
+	
+	<delete id="delete">
+		delete from praiserecord where Praise_ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from praiserecord where Praise_ID in 
+		<foreach item="praiseId" collection="array" open="(" separator="," close=")">
+			#{praiseId}
+		</foreach>
+	</delete>
+
+</mapper>

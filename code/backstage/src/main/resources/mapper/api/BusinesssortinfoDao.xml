@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.BusinesssortinfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Businesssortinfo" id="businesssortinfoMap">
+        <result property="sortId" column="Sort_ID"/>
+        <result property="name" column="Name"/>
+        <result property="iconUrl" column="Icon_Url"/>
+        <result property="status" column="Status"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Businesssortinfo">
+		select * from businesssortinfo where Sort_ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Businesssortinfo">
+		select * from businesssortinfo
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by Sort_ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from businesssortinfo 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Businesssortinfo" useGeneratedKeys="true" keyProperty="sortId">
+		insert into businesssortinfo
+		(
+			`Name`, 
+			`Icon_Url`, 
+			`Status`
+		)
+		values
+		(
+			#{name}, 
+			#{iconUrl}, 
+			#{status}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Businesssortinfo">
+		update businesssortinfo 
+		<set>
+			<if test="name != null">`Name` = #{name}, </if>
+			<if test="iconUrl != null">`Icon_Url` = #{iconUrl}, </if>
+			<if test="status != null">`Status` = #{status}</if>
+		</set>
+		where Sort_ID = #{sortId}
+	</update>
+	
+	<delete id="delete">
+		delete from businesssortinfo where Sort_ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from businesssortinfo where Sort_ID in 
+		<foreach item="sortId" collection="array" open="(" separator="," close=")">
+			#{sortId}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.IdentitybusinessrelationDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Identitybusinessrelation" id="identitybusinessrelationMap">
+        <result property="id" column="ID"/>
+        <result property="identityId" column="Identity_ID"/>
+        <result property="sortId" column="Sort_ID"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Identitybusinessrelation">
+		select * from identitybusinessrelation where ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Identitybusinessrelation">
+		select * from identitybusinessrelation
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from identitybusinessrelation 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Identitybusinessrelation">
+		insert into identitybusinessrelation
+		(
+			`ID`, 
+			`Identity_ID`, 
+			`Sort_ID`
+		)
+		values
+		(
+			#{id}, 
+			#{identityId}, 
+			#{sortId}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Identitybusinessrelation">
+		update identitybusinessrelation 
+		<set>
+			<if test="identityId != null">`Identity_ID` = #{identityId}, </if>
+			<if test="sortId != null">`Sort_ID` = #{sortId}</if>
+		</set>
+		where ID = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from identitybusinessrelation where ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from identitybusinessrelation where ID in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

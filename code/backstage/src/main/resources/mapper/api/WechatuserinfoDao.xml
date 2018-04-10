@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.WechatuserinfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Wechatuserinfo" id="wechatuserinfoMap">
+        <result property="userId" column="User_ID"/>
+        <result property="areaId" column="Area_ID"/>
+        <result property="openid" column="openid"/>
+        <result property="unionid" column="unionid"/>
+        <result property="nickname" column="nickName"/>
+        <result property="avatarurl" column="avatarUrl"/>
+        <result property="gender" column="gender"/>
+        <result property="city" column="city"/>
+        <result property="province" column="province"/>
+        <result property="country" column="country"/>
+        <result property="language" column="language"/>
+        <result property="isEnabled" column="Is_Enabled"/>
+        <result property="activityCount" column="Activity_Count"/>
+        <result property="businessCount" column="Business_Count"/>
+        <result property="createdon" column="CreatedOn"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Wechatuserinfo">
+		select * from wechatuserinfo where User_ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Wechatuserinfo">
+		select * from wechatuserinfo
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by User_ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from wechatuserinfo 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Wechatuserinfo">
+		insert into wechatuserinfo
+		(
+			`User_ID`,
+			`Area_ID`, 
+			`openid`, 
+			`unionid`, 
+			`nickName`, 
+			`avatarUrl`, 
+			`gender`, 
+			`city`, 
+			`province`, 
+			`country`, 
+			`language`, 
+			`Is_Enabled`, 
+			`Activity_Count`, 
+			`Business_Count`, 
+			`CreatedOn`
+		)
+		values
+		(
+			#{userId},
+			#{areaId}, 
+			#{openid}, 
+			#{unionid}, 
+			#{nickname}, 
+			#{avatarurl}, 
+			#{gender}, 
+			#{city}, 
+			#{province}, 
+			#{country}, 
+			#{language}, 
+			#{isEnabled}, 
+			#{activityCount}, 
+			#{businessCount}, 
+			#{createdon}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Wechatuserinfo">
+		update wechatuserinfo 
+		<set>
+			<if test="areaId != null">`Area_ID` = #{areaId}, </if>
+			<if test="openid != null">`openid` = #{openid}, </if>
+			<if test="unionid != null">`unionid` = #{unionid}, </if>
+			<if test="nickname != null">`nickName` = #{nickname}, </if>
+			<if test="avatarurl != null">`avatarUrl` = #{avatarurl}, </if>
+			<if test="gender != null">`gender` = #{gender}, </if>
+			<if test="city != null">`city` = #{city}, </if>
+			<if test="province != null">`province` = #{province}, </if>
+			<if test="country != null">`country` = #{country}, </if>
+			<if test="language != null">`language` = #{language}, </if>
+			<if test="isEnabled != null">`Is_Enabled` = #{isEnabled}, </if>
+			<if test="activityCount != null">`Activity_Count` = #{activityCount}, </if>
+			<if test="businessCount != null">`Business_Count` = #{businessCount}, </if>
+			<if test="createdon != null">`CreatedOn` = #{createdon}</if>
+		</set>
+		where User_ID = #{userId}
+	</update>
+	
+	<delete id="delete">
+		delete from wechatuserinfo where User_ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from wechatuserinfo where User_ID in
+		<foreach item="userId" collection="array" open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+	</delete>
+
+	<select id="queryByUnionid" resultType="com.vigekoo.modules.api.entity.Wechatuserinfo">
+		select *  from wechatuserinfo where unionid = #{value}
+	</select>
+</mapper>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.UseractivepropertyDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Useractiveproperty" id="useractivepropertyMap">
+        <result property="uapid" column="UAPID"/>
+        <result property="userId" column="User_ID"/>
+        <result property="renown" column="Renown"/>
+        <result property="praise" column="Praise"/>
+        <result property="lastLogin" column="Last_Login"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Useractiveproperty">
+		select * from useractiveproperty where UAPID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Useractiveproperty">
+		select * from useractiveproperty
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by UAPID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from useractiveproperty 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Useractiveproperty">
+		insert into useractiveproperty
+		(
+			`UAPID`, 
+			`User_ID`, 
+			`Renown`, 
+			`Praise`, 
+			`Last_Login`
+		)
+		values
+		(
+			#{uapid}, 
+			#{userId}, 
+			#{renown}, 
+			#{praise}, 
+			#{lastLogin}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Useractiveproperty">
+		update useractiveproperty 
+		<set>
+			<if test="userId != null">`User_ID` = #{userId}, </if>
+			<if test="renown != null">`Renown` = #{renown}, </if>
+			<if test="praise != null">`Praise` = #{praise}, </if>
+			<if test="lastLogin != null">`Last_Login` = #{lastLogin}</if>
+		</set>
+		where UAPID = #{uapid}
+	</update>
+	
+	<delete id="delete">
+		delete from useractiveproperty where UAPID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from useractiveproperty where UAPID in 
+		<foreach item="uapid" collection="array" open="(" separator="," close=")">
+			#{uapid}
+		</foreach>
+	</delete>
+
+</mapper>

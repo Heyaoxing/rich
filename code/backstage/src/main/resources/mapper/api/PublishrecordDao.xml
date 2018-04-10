@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.PublishrecordDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Publishrecord" id="publishrecordMap">
+        <result property="publishId" column="publish_ID"/>
+        <result property="userId" column="User_ID"/>
+        <result property="publishType" column="publish_Type"/>
+        <result property="name" column="name"/>
+        <result property="startPrice" column="start_price"/>
+        <result property="endPrice" column="end_price"/>
+        <result property="sortId" column="Sort_ID"/>
+        <result property="descript" column="descript"/>
+        <result property="images01" column="images01"/>
+        <result property="images02" column="images02"/>
+        <result property="images03" column="images03"/>
+        <result property="lng" column="lng"/>
+        <result property="lat" column="Lat"/>
+        <result property="createdOn" column="Created_On"/>
+        <result property="verifiedStatus" column="Verified_Status"/>
+        <result property="personId" column="Person_ID"/>
+        <result property="verifiedOn" column="Verified_On"/>
+        <result property="errorMessage" column="Error_Message"/>
+        <result property="publishOn" column="publish_On"/>
+        <result property="status" column="status"/>
+        <result property="isDelete" column="is_delete"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Publishrecord">
+		select * from publishrecord where publish_ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Publishrecord">
+		select * from publishrecord
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by publish_ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from publishrecord 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Publishrecord">
+		insert into publishrecord
+		(
+			`publish_ID`, 
+			`User_ID`, 
+			`publish_Type`, 
+			`name`, 
+			`start_price`, 
+			`end_price`, 
+			`Sort_ID`, 
+			`descript`, 
+			`images01`, 
+			`images02`, 
+			`images03`, 
+			`lng`, 
+			`Lat`, 
+			`Created_On`, 
+			`Verified_Status`, 
+			`Person_ID`, 
+			`Verified_On`, 
+			`Error_Message`, 
+			`publish_On`, 
+			`status`, 
+			`is_delete`
+		)
+		values
+		(
+			#{publishId}, 
+			#{userId}, 
+			#{publishType}, 
+			#{name}, 
+			#{startPrice}, 
+			#{endPrice}, 
+			#{sortId}, 
+			#{descript}, 
+			#{images01}, 
+			#{images02}, 
+			#{images03}, 
+			#{lng}, 
+			#{lat}, 
+			#{createdOn}, 
+			#{verifiedStatus}, 
+			#{personId}, 
+			#{verifiedOn}, 
+			#{errorMessage}, 
+			#{publishOn}, 
+			#{status}, 
+			#{isDelete}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Publishrecord">
+		update publishrecord 
+		<set>
+			<if test="userId != null">`User_ID` = #{userId}, </if>
+			<if test="publishType != null">`publish_Type` = #{publishType}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="startPrice != null">`start_price` = #{startPrice}, </if>
+			<if test="endPrice != null">`end_price` = #{endPrice}, </if>
+			<if test="sortId != null">`Sort_ID` = #{sortId}, </if>
+			<if test="descript != null">`descript` = #{descript}, </if>
+			<if test="images01 != null">`images01` = #{images01}, </if>
+			<if test="images02 != null">`images02` = #{images02}, </if>
+			<if test="images03 != null">`images03` = #{images03}, </if>
+			<if test="lng != null">`lng` = #{lng}, </if>
+			<if test="lat != null">`Lat` = #{lat}, </if>
+			<if test="createdOn != null">`Created_On` = #{createdOn}, </if>
+			<if test="verifiedStatus != null">`Verified_Status` = #{verifiedStatus}, </if>
+			<if test="personId != null">`Person_ID` = #{personId}, </if>
+			<if test="verifiedOn != null">`Verified_On` = #{verifiedOn}, </if>
+			<if test="errorMessage != null">`Error_Message` = #{errorMessage}, </if>
+			<if test="publishOn != null">`publish_On` = #{publishOn}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="isDelete != null">`is_delete` = #{isDelete}</if>
+		</set>
+		where publish_ID = #{publishId}
+	</update>
+	
+	<delete id="delete">
+		delete from publishrecord where publish_ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from publishrecord where publish_ID in 
+		<foreach item="publishId" collection="array" open="(" separator="," close=")">
+			#{publishId}
+		</foreach>
+	</delete>
+
+</mapper>

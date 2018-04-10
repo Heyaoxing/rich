@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.NearByMapping">
+
+	<select id="getShowMessage" resultType="com.vigekoo.modules.api.model.reponse.NearbyShowResponse">
+		SELECT
+			a.publish_ID as publishId,a.publish_Type as publishType,a.address,a.`name` as name,a.start_price as startPrice,a.end_price as endPrice,a.Lat,a.lng,a.publish_On as publishOn,a.User_ID as userId,a.address,b.`Name` as userName,b.Mobile,c.avatarUrl as avatarUrl,d.Praise as praise,
+			ROUND(6378.138*2*ASIN(SQRT(POW(SIN((22.299439*PI()/180-a.lat*PI()/180)/2),2)+COS(22.299439*PI()/180)*COS(a.lat*PI()/180)*POW(SIN((114.173881*PI()/180-a.lng*PI()/180)/2),2)))*1000)AS distance
+		FROM
+			publishRecord AS a
+		LEFT JOIN IdentityInfo AS b ON a.User_ID = b.User_ID
+		LEFT JOIN WechatUserInfo AS c ON a.User_ID = c.User_ID
+		LEFT JOIN UserActiveProperty as d ON a.User_ID=d.User_ID
+		ORDER BY distance asc
+	</select>
+</mapper>

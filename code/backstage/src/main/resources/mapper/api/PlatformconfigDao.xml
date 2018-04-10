@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.PlatformconfigDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Platformconfig" id="platformconfigMap">
+        <result property="platformConfigId" column="Platform_Config_ID"/>
+        <result property="everyActivityNum" column="Every_Activity_Num"/>
+        <result property="everyBusinessNum" column="Every_Business_Num"/>
+        <result property="maxActivityNum" column="Max_Activity_Num"/>
+        <result property="maxBusinessNum" column="Max_Business_Num"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Platformconfig">
+		select * from platformconfig where Platform_Config_ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Platformconfig">
+		select * from platformconfig
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by Platform_Config_ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from platformconfig 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Platformconfig" useGeneratedKeys="true" keyProperty="platformConfigId">
+		insert into platformconfig
+		(
+			`Every_Activity_Num`, 
+			`Every_Business_Num`, 
+			`Max_Activity_Num`, 
+			`Max_Business_Num`
+		)
+		values
+		(
+			#{everyActivityNum}, 
+			#{everyBusinessNum}, 
+			#{maxActivityNum}, 
+			#{maxBusinessNum}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Platformconfig">
+		update platformconfig 
+		<set>
+			<if test="everyActivityNum != null">`Every_Activity_Num` = #{everyActivityNum}, </if>
+			<if test="everyBusinessNum != null">`Every_Business_Num` = #{everyBusinessNum}, </if>
+			<if test="maxActivityNum != null">`Max_Activity_Num` = #{maxActivityNum}, </if>
+			<if test="maxBusinessNum != null">`Max_Business_Num` = #{maxBusinessNum}</if>
+		</set>
+		where Platform_Config_ID = #{platformConfigId}
+	</update>
+	
+	<delete id="delete">
+		delete from platformconfig where Platform_Config_ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from platformconfig where Platform_Config_ID in 
+		<foreach item="platformConfigId" collection="array" open="(" separator="," close=")">
+			#{platformConfigId}
+		</foreach>
+	</delete>
+
+</mapper>

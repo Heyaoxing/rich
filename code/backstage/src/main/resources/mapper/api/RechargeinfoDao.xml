@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.RechargeinfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Rechargeinfo" id="rechargeinfoMap">
+        <result property="rechargeId" column="Recharge_ID"/>
+        <result property="userId" column="User_ID"/>
+        <result property="money" column="Money"/>
+        <result property="source" column="Source"/>
+        <result property="account" column="Account"/>
+        <result property="createdon" column="CreatedOn"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Rechargeinfo">
+		select * from rechargeinfo where Recharge_ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Rechargeinfo">
+		select * from rechargeinfo
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by Recharge_ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from rechargeinfo 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Rechargeinfo">
+		insert into rechargeinfo
+		(
+			`Recharge_ID`, 
+			`User_ID`, 
+			`Money`, 
+			`Source`, 
+			`Account`, 
+			`CreatedOn`
+		)
+		values
+		(
+			#{rechargeId}, 
+			#{userId}, 
+			#{money}, 
+			#{source}, 
+			#{account}, 
+			#{createdon}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Rechargeinfo">
+		update rechargeinfo 
+		<set>
+			<if test="userId != null">`User_ID` = #{userId}, </if>
+			<if test="money != null">`Money` = #{money}, </if>
+			<if test="source != null">`Source` = #{source}, </if>
+			<if test="account != null">`Account` = #{account}, </if>
+			<if test="createdon != null">`CreatedOn` = #{createdon}</if>
+		</set>
+		where Recharge_ID = #{rechargeId}
+	</update>
+	
+	<delete id="delete">
+		delete from rechargeinfo where Recharge_ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from rechargeinfo where Recharge_ID in 
+		<foreach item="rechargeId" collection="array" open="(" separator="," close=")">
+			#{rechargeId}
+		</foreach>
+	</delete>
+
+</mapper>

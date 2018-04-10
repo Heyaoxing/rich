@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.ChinaareainfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Chinaareainfo" id="chinaareainfoMap">
+        <result property="areaid" column="AreaID"/>
+        <result property="name" column="Name"/>
+        <result property="parentid" column="ParentId"/>
+        <result property="shortname" column="ShortName"/>
+        <result property="leveltype" column="LevelType"/>
+        <result property="citycode" column="CityCode"/>
+        <result property="zipcode" column="ZipCode"/>
+        <result property="mergername" column="MergerName"/>
+        <result property="lng" column="lng"/>
+        <result property="lat" column="Lat"/>
+        <result property="pinyin" column="Pinyin"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Chinaareainfo">
+		select * from chinaareainfo where AreaID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Chinaareainfo">
+		select * from chinaareainfo
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by AreaID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from chinaareainfo 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Chinaareainfo">
+		insert into chinaareainfo
+		(
+			`AreaID`, 
+			`Name`, 
+			`ParentId`, 
+			`ShortName`, 
+			`LevelType`, 
+			`CityCode`, 
+			`ZipCode`, 
+			`MergerName`, 
+			`lng`, 
+			`Lat`, 
+			`Pinyin`
+		)
+		values
+		(
+			#{areaid}, 
+			#{name}, 
+			#{parentid}, 
+			#{shortname}, 
+			#{leveltype}, 
+			#{citycode}, 
+			#{zipcode}, 
+			#{mergername}, 
+			#{lng}, 
+			#{lat}, 
+			#{pinyin}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Chinaareainfo">
+		update chinaareainfo 
+		<set>
+			<if test="name != null">`Name` = #{name}, </if>
+			<if test="parentid != null">`ParentId` = #{parentid}, </if>
+			<if test="shortname != null">`ShortName` = #{shortname}, </if>
+			<if test="leveltype != null">`LevelType` = #{leveltype}, </if>
+			<if test="citycode != null">`CityCode` = #{citycode}, </if>
+			<if test="zipcode != null">`ZipCode` = #{zipcode}, </if>
+			<if test="mergername != null">`MergerName` = #{mergername}, </if>
+			<if test="lng != null">`lng` = #{lng}, </if>
+			<if test="lat != null">`Lat` = #{lat}, </if>
+			<if test="pinyin != null">`Pinyin` = #{pinyin}</if>
+		</set>
+		where AreaID = #{areaid}
+	</update>
+	
+	<delete id="delete">
+		delete from chinaareainfo where AreaID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from chinaareainfo where AreaID in 
+		<foreach item="areaid" collection="array" open="(" separator="," close=")">
+			#{areaid}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vigekoo.modules.api.dao.IdentityinfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.vigekoo.modules.api.entity.Identityinfo" id="identityinfoMap">
+        <result property="identityId" column="Identity_ID"/>
+        <result property="areaid" column="AreaID"/>
+        <result property="userId" column="User_ID"/>
+        <result property="name" column="Name"/>
+        <result property="briefly" column="Briefly"/>
+        <result property="address" column="Address"/>
+        <result property="workTime" column="Work_Time"/>
+        <result property="mobile" column="Mobile"/>
+        <result property="description" column="Description"/>
+        <result property="images01" column="Images01"/>
+        <result property="images02" column="Images02"/>
+        <result property="images03" column="Images03"/>
+        <result property="images04" column="Images04"/>
+        <result property="images05" column="Images05"/>
+        <result property="images06" column="Images06"/>
+        <result property="createdon" column="CreatedOn"/>
+        <result property="updatedon" column="UpdatedOn"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.vigekoo.modules.api.entity.Identityinfo">
+		select * from identityinfo where Identity_ID = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.vigekoo.modules.api.entity.Identityinfo">
+		select * from identityinfo
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by Identity_ID desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from identityinfo 
+	</select>
+	 
+	<insert id="save" parameterType="com.vigekoo.modules.api.entity.Identityinfo">
+		insert into identityinfo
+		(
+			`Identity_ID`, 
+			`AreaID`, 
+			`User_ID`, 
+			`Name`, 
+			`Briefly`, 
+			`Address`, 
+			`Work_Time`, 
+			`Mobile`, 
+			`Description`, 
+			`Images01`, 
+			`Images02`, 
+			`Images03`, 
+			`Images04`, 
+			`Images05`, 
+			`Images06`, 
+			`CreatedOn`, 
+			`UpdatedOn`
+		)
+		values
+		(
+			#{identityId}, 
+			#{areaid}, 
+			#{userId}, 
+			#{name}, 
+			#{briefly}, 
+			#{address}, 
+			#{workTime}, 
+			#{mobile}, 
+			#{description}, 
+			#{images01}, 
+			#{images02}, 
+			#{images03}, 
+			#{images04}, 
+			#{images05}, 
+			#{images06}, 
+			#{createdon}, 
+			#{updatedon}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.vigekoo.modules.api.entity.Identityinfo">
+		update identityinfo 
+		<set>
+			<if test="areaid != null">`AreaID` = #{areaid}, </if>
+			<if test="userId != null">`User_ID` = #{userId}, </if>
+			<if test="name != null">`Name` = #{name}, </if>
+			<if test="briefly != null">`Briefly` = #{briefly}, </if>
+			<if test="address != null">`Address` = #{address}, </if>
+			<if test="workTime != null">`Work_Time` = #{workTime}, </if>
+			<if test="mobile != null">`Mobile` = #{mobile}, </if>
+			<if test="description != null">`Description` = #{description}, </if>
+			<if test="images01 != null">`Images01` = #{images01}, </if>
+			<if test="images02 != null">`Images02` = #{images02}, </if>
+			<if test="images03 != null">`Images03` = #{images03}, </if>
+			<if test="images04 != null">`Images04` = #{images04}, </if>
+			<if test="images05 != null">`Images05` = #{images05}, </if>
+			<if test="images06 != null">`Images06` = #{images06}, </if>
+			<if test="createdon != null">`CreatedOn` = #{createdon}, </if>
+			<if test="updatedon != null">`UpdatedOn` = #{updatedon}</if>
+		</set>
+		where Identity_ID = #{identityId}
+	</update>
+	
+	<delete id="delete">
+		delete from identityinfo where Identity_ID = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from identityinfo where Identity_ID in 
+		<foreach item="identityId" collection="array" open="(" separator="," close=")">
+			#{identityId}
+		</foreach>
+	</delete>
+
+</mapper>
